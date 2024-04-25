@@ -24,7 +24,7 @@ namespace XR
             _handAnimator.SetFloat("Trigger", triggerValue);
 
             float gripValue = _gripAnimationAction.action.ReadValue<float>();
-            _handAnimator.SetFloat("Grip", gripValue);
+            _handAnimator.SetFloat("Grip", gripValue/2);
         }
     }
 }
