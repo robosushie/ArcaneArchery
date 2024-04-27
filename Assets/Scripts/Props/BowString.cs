@@ -6,27 +6,27 @@ using UnityEngine;
 public class BowString : MonoBehaviour
 {
     [SerializeField]
-    private Transform _endPoint1, _endPoint2;
+    private Transform endpoint_1, endpoint_2;
 
-    private LineRenderer _lineRenderer;
+    private LineRenderer lineRenderer;
 
     private void Awake()
     {
-        _lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     public void CreateString(Vector3? midPosition)
     {
         Vector3[] linePoints = new Vector3[midPosition == null ? 2 : 3];
-        linePoints[0] = _endPoint1.localPosition;
+        linePoints[0] = endpoint_1.localPosition;
         if (midPosition != null)
         {
             linePoints[1] = transform.InverseTransformPoint(midPosition.Value);
         }
-        linePoints[^1] = _endPoint2.localPosition;
+        linePoints[^1] = endpoint_2.localPosition;
 
-        _lineRenderer.positionCount = linePoints.Length;
-        _lineRenderer.SetPositions(linePoints);
+        lineRenderer.positionCount = linePoints.Length;
+        lineRenderer.SetPositions(linePoints);
     }
 
     private void Start()
